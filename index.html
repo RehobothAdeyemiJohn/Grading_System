@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading system</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="shortcut icon" href="Untitled_design__1_-removebg-preview.png" type="image/x-icon">
+</head>
+<body style="background-color: rgb(0, 0, 0);">
+    <div class="container rounded-3 shadow" style="background-color:rgb(160, 154, 154); margin-top: 150px; width: 700px;">
+        <!-- <img src="Untitled_design__1_-removebg-preview.png" width="100px" alt="School logo" style="display: inline; margin-top: 5px;"> -->
+        <h2 style="color: rgb(0, 0, 0); padding:40px 10px 0px 0px; text-align: center; display: ;">GRADING SYSTEM</h2><br>
+
+        <input type="number" class="form-control" id="Score" placeholder="Enter your score" style="background-color: rgb(204, 195, 195); width: 80%; margin: 10px 10px 5px 60px;">
+
+        <button onclick="gradeChecker()" class="btn w-10 mt-3" type="button" style="margin-left: 60px;background-color: black;color: aliceblue;  width: 80%;">Check result</button>
+
+        <div class=" text-center pt-4 pb-5 fw-bold fs-5" id="showResults" style="color: rgb(12, 12, 12);">Your result will show here</div>
+    </div>
+    <script>
+
+        var SongFail = new Audio('Audiof.mp3')
+        
+        var SongPass = new Audio('Audioe.m4a')
+
+        var SongGood = new Audio('Audioc.m4a')
+
+        var SongVeryGood = new Audio('AudioB.m4a')
+
+        var SongExcellent = new Audio('Audioa.m4a')
+        function gradeChecker() {
+            // console.log(score.value);
+            if(Score.value == ''){
+            alert("Please fill in your score")
+            } else {
+                var userScore = Number(Score.value)
+                if(userScore >= 0 && userScore < 40){
+                    showResults.innerHTML = ''
+                    showResults.innerHTML = 'F - Fail 😩'
+                    SongFail.play()
+                } else if(userScore >= 40 && userScore < 45){
+                    showResults.innerHTML = ''
+                    showResults.innerHTML = 'E - Pass 🙂'
+                    SongPass.play()
+                } else if(userScore >= 45 && userScore < 50){
+                    showResults.innerHTML = ''
+                    showResults.innerHTML = 'D - Pass 🙁'
+
+                }else if(userScore >= 50 && userScore < 60){
+                    showResults.innerHTML = ''
+                    showResults.innerHTML = 'C - Good 😊'
+                    SongGood.play()
+                }else if(userScore >= 60 && userScore < 70){
+                    showResults.innerHTML = ''
+                    showResults.innerHTML = 'B - Very Good 😊'
+                    SongVeryGood.play()
+                }else if(userScore >= 70 && userScore <= 100){
+                    showResults.innerHTML = ''
+                    showResults.innerHTML = 'A - Excellent ✅✅'
+                    SongExcellent.play()
+
+                }
+            } 
+        } 
+        
+
+    </script>
+</body>
+</html>
